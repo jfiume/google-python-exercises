@@ -17,7 +17,12 @@
 # Return the resulting string.
 def verbing(s):
   # +++your code here+++
-  return
+  if len(s) >= 3 and s[-3:] != 'ing':
+      return s + 'ing'
+  elif len(s) >= 3:
+      return s + 'ly'
+  else:
+      return s
 
 
 # E. not_bad
