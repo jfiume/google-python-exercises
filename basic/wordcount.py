@@ -55,12 +55,24 @@ def count_words(filename):
             word_count[word.lower()] += 1
         else:
             word_count[word.lower()] = 1
+    f.close()
     return word_count
 
 def print_words(filename):
     word_count = count_words(filename)
-    print word_count
+    for word, value in word_count.items():
+        print('{0} {1}').format(word, value)
     # sys.exit(0)
+
+def print_top(filename):
+    word_count = count_words(filename)
+    count = 0
+    for key, value in sorted(word_count.items(), key=lambda (k,v): (-v,k)):
+        if count < 20:
+            print "%s %s" % (key, value)
+        count += 1
+
+
 ###
 
 # This basic command line argument parsing code is provided and
